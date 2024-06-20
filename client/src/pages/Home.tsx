@@ -7,6 +7,8 @@ import Layout from "./Layout";
 import bg from "../assets/bg.png";
 import logo from "../assets/MYHEALTHBOT.png";
 import { Link } from "react-router-dom";
+import Answer from "../components/Answer";
+import { getUser } from "../utils/auth";
 
 interface ToggleCustomThemeProps {
   showCustomTheme: Boolean;
@@ -16,6 +18,7 @@ interface ToggleCustomThemeProps {
 export default function LandingPage() {
   const [mode, setMode] = React.useState<PaletteMode>("light");
   const LPtheme = createTheme(getLPTheme(mode));
+  const { user } = getUser()!;
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
@@ -32,6 +35,7 @@ export default function LandingPage() {
           backgroundPositionY: "50%",
           backgroundPositionX: "30%",
           px: { xs: 2, md: 5 },
+          overflow: "auto",
         }}
       >
         <img
@@ -47,18 +51,16 @@ export default function LandingPage() {
         <Typography
           variant="h1"
           gutterBottom
-          fontFamily="Quicksand"
           sx={{
             fontSize: { xs: "45px", md: "60px" },
             mt: { xs: 8, md: 10 },
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          Welcome Ayobami Victor
+          Welcome {user.first_name} {user.last_name}
         </Typography>
         <Typography
           variant="h3"
-          fontFamily="Quicksand"
           sx={{
             fontSize: { xs: "32px", md: "42px" },
             maxWidth: { xs: "400px", md: "600px" },
@@ -71,7 +73,6 @@ export default function LandingPage() {
         <Typography
           variant="h3"
           gutterBottom
-          fontFamily="Quicksand"
           sx={{ fontSize: { xs: "32px", md: "42px" }, textAlign: { xs: "center", md: "left" } }}
         >
           I am ready to help

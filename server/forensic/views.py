@@ -7,7 +7,7 @@ from .serializers import UserSerializer, CustomTokenSerializer, LoginSerializer,
 from .models import Report, CrimeCode 
 from .permissions import IsOwnerOrIsAdminOrReadOnly
 from rest_framework.authentication import TokenAuthentication
-
+from .bot import get_diagnosis
 from django.contrib.auth import authenticate
 
 class SignUpView(APIView):
@@ -52,3 +52,10 @@ class CrimeCodeView(APIView):
     queryset = CrimeCode.objects.all()
     serializer = CrimeCodeSerializer(queryset, many=True)
     return Response(serializer.data)
+  
+class ChatView(APIView): 
+  def post(self, request): 
+    question = request.data["question"]
+    context = request.data["context"]
+    res = get_diagnosis(question, context)
+    return Response(res.text)

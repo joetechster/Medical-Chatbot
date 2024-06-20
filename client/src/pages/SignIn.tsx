@@ -43,9 +43,10 @@ export default function SignIn() {
             backgroundImage: `url(${bg})`,
             backgroundPositionX: "60%",
             backgroundSize: "cover",
+            display: { xs: "none", md: "initial" },
           }}
         />
-        <Box overflow="auto" flexBasis="50%">
+        <Box overflow="auto" flexBasis={{ xs: "100%", md: "50%" }}>
           <img
             src={logo}
             alt="MYHEALTHBOT"
@@ -66,13 +67,7 @@ export default function SignIn() {
                 alignItems: "center",
               }}
             >
-              <Typography
-                component="h1"
-                variant="h4"
-                textAlign="center"
-                marginX={2}
-                fontFamily="Quicksand"
-              >
+              <Typography component="h1" variant="h4" textAlign="center" marginX={2}>
                 Empowering you to make informed health decisions
               </Typography>
 

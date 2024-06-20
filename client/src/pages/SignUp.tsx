@@ -86,9 +86,10 @@ export default function SignUp() {
             backgroundImage: `url(${bg})`,
             backgroundPositionX: "60%",
             backgroundSize: "cover",
+            display: { xs: "none", md: "initial" },
           }}
         />
-        <Box overflow="auto" flexBasis="50%">
+        <Box overflow="auto" flexBasis={{ xs: "100%", md: "50%" }}>
           <img
             src={logo}
             alt="MYHEALTHBOT"
@@ -110,7 +111,7 @@ export default function SignUp() {
                 alignItems: "center",
               }}
             >
-              <Typography component="h1" variant="h4" fontFamily="QuickSand">
+              <Typography component="h1" variant="h4">
                 Sign up
               </Typography>
               <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>

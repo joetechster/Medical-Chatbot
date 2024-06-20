@@ -5,6 +5,7 @@ import { getUser } from "./utils/auth";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
+import Chat from "./pages/Chat";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   },
   { path: "sign-in", element: <SignIn /> },
   { path: "sign-up", element: <SignUp /> },
+  { path: "chat", element: <Chat /> },
 ]);
 
 export default router;
