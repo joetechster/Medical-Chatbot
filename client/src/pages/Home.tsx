@@ -9,6 +9,7 @@ import logo from "../assets/MYHEALTHBOT.png";
 import { Link } from "react-router-dom";
 import Answer from "../components/Answer";
 import { getUser } from "../utils/auth";
+import { baseUrl } from "../utils/globals";
 
 interface ToggleCustomThemeProps {
   showCustomTheme: Boolean;
@@ -48,6 +49,19 @@ export default function LandingPage() {
             height: "25px",
           }}
         />
+        {user.passport && (
+          <img
+            src={baseUrl + user.passport}
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginTop: "10px",
+              position: "absolute",
+              right: 40,
+              width: 140,
+            }}
+          />
+        )}
         <Typography
           variant="h1"
           gutterBottom

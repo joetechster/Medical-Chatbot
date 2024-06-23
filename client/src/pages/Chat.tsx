@@ -66,13 +66,25 @@ const Chat = () => {
               height: "25px",
             }}
           />
+          {user.passport && (
+            <img
+              src={baseUrl + user.passport}
+              style={{
+                display: "block",
+                marginLeft: "auto",
+                marginTop: "10px",
+                position: "absolute",
+                right: 10,
+                width: 140,
+              }}
+            />
+          )}
         </Box>
         <Box maxWidth="md" sx={{ m: "auto", px: { xs: 1, sm: 3, md: 5 }, pb: 2, width: "100%" }}>
-          <Typography>
+          <Typography variant="h3">
             Welcome {user.first_name} {user.last_name}
-            <br />
-            What symptoms are you feeling now?
           </Typography>
+          <Typography variant="h4">What symptoms are you feeling now?</Typography>
           {items.map((item, i) => (
             <>
               <Box
@@ -93,9 +105,14 @@ const Chat = () => {
             </>
           ))}
           <Divider sx={{ mt: 2, mb: 1 }} />
-          <Link href="https://wa.me/+2348104322910" underline="hover" variant="button">
+          <Button
+            variant="contained"
+            href="https://wa.me/+2348156936295"
+            target="_blank"
+            size="large"
+          >
             Contact a certified doctor for more drug recommendation and to book an appointment
-          </Link>
+          </Button>
         </Box>
         <Box display="grid" sx={{ position: "sticky", bottom: 0 }}>
           <Container maxWidth="md" sx={{ mt: "auto", mb: 1, p: 0 }}>

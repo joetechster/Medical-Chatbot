@@ -52,7 +52,10 @@ class CrimeCodeView(APIView):
     queryset = CrimeCode.objects.all()
     serializer = CrimeCodeSerializer(queryset, many=True)
     return Response(serializer.data)
-  
+
+
+initial = get_diagnosis("Initial", "")
+print(initial.text)
 class ChatView(APIView): 
   def post(self, request): 
     question = request.data["question"]
