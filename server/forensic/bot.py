@@ -6,9 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Set your OpenAI API key
-# Access the API key from the environment
-# api_key = os.getenv("API_KEY")
-# os.environ["GEMINI_API_KEY"] = 'AIzaSyByAgJGu-bD0Rnj0Bj7PNxvoTRNEYjUCZk'
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-flash')
 
